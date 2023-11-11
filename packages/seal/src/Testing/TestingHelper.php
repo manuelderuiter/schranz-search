@@ -71,6 +71,8 @@ final class TestingHelper
         $simpleFields = [
             'id' => new Field\IdentifierField('id'),
             'title' => new Field\TextField('title'),
+            'is_online' => new Field\BooleanField('is_online', filterable: true),
+            'author' => new Field\TextField('author', filterable: true),
         ];
 
         $complexIndex = new Index($prefix . 'complex', $complexFields);
@@ -198,6 +200,8 @@ final class TestingHelper
      * @return array<array{
      *     id: string,
      *     title?: string|null,
+     *     is_online?: bool,
+     *     author?: string
      * }>
      */
     public static function createSimpleFixtures(): array
@@ -213,6 +217,28 @@ final class TestingHelper
             ],
             [
                 'id' => '3',
+            ],
+            [
+                'id' => '4',
+                'title' => 'Simple Title',
+                'is_online' => true,
+                'author' => 'John Doe',
+            ],
+            [
+                'id' => '5',
+                'title' => 'Other Title',
+                'is_online' => false,
+            ],
+            [
+                'id' => '6',
+                'title' => 'Simple Title',
+                'is_online' => true,
+                'author' => 'Jane Doe',
+            ],
+            [
+                'id' => '7',
+                'title' => 'Simple Title',
+                'author' => 'A.',
             ],
         ];
     }
